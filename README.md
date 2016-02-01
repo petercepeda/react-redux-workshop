@@ -150,22 +150,217 @@ All you do with React is create bite-sized, encapsulated UI blocks with which yo
 
 
 ##Exercise 3: Add property to customize `Toggle` values
-Coming soon...
+1. Add two properties to `propTypes`: `enabledText` and `disabledText`.
+  ```jsx
+  // app/components/Toggle.js
+  static propTypes = {
+    enabled: PropTypes.bool,
+    enabledText: PropTypes.string,
+    disabledText: PropTypes.string
+  };
+  ```
+
+1. Set the `defaultProps` to 'ON' and 'OFF'.
+  ```jsx
+  // app/components/Toggle.js
+  static defaultProps = {
+    enabled: false,
+    enabledText: 'ON',
+    disabledText: 'OFF'
+  };
+  ```
+
+1. Use the component's `props` to set the toggle values.
+  ```jsx
+  // app/components/Toggle.js
+  render() {
+    return (
+      <div>{this.props.enabled ? this.props.enabledText : this.props.disabledText}</div>
+    )
+  }
+  ```
+
+1. Customize the `Toggle` by filling in your values for `enabledText` and `disabledText`.
+  ```jsx
+  // app/main.js
+  render(<Toggle enabled={true} enabledText='Yep' disabledText='Nope' />, document.getElementById('app'))
+  ```
 
 ##Exercise 4: Use children as the `Toggle` label
-Coming soon...
+1. Add some text inside of the `Toggle`. Instead of a self-closing tag, you'll enclose the text with a closing `Toggle` tag.
+  ```jsx
+  // app/main.js
+  render(
+    <Toggle enabled={true} enabledText='Yep' disabledText='Nope'>
+      Use React in my web application?
+    </Toggle>
+    , document.getElementById('app'))
+  ```
+
+1. In a component, `props.children` is a collection of components rendered inside the components. Use `props.children` as
+a label for the `Toggle`.
+  ```jsx
+  // app/components/Toggle.js
+  render() {
+    return (
+      <div>
+        {this.props.enabled ? this.props.enabledText : this.props.disabledText}
+        : {this.props.children}
+      </div>
+    )
+  }
+  ```
+  You should see a `:` and your label appended after the toggle.
 
 ##Exercise 5: Handle `Toggle` clicks
-Coming soon...
+1. Add a method to `Toggle` for handling clicks and logging the event in the console.
+  ```jsx
+  // app/components/Toggle.js
+  _handleClick(event) {
+    console.debug('Toggle clicked!', event)
+  }
+  ```
+
+1. Add the event handler to the rendered `Toggle`.
+  ```jsx
+  // app/components/Toggle.js
+  render() {
+    return (
+      <div onClick={this._handleClick}>
+        {this.props.enabled ? this.props.enabledText : this.props.disabledText}:
+        {this.props.children}
+      </div>
+    )
+  }
+  ```
+
+1. Open the web inspector console, and click the `Toggle` to print the log message.
+  ```
+  Toggle clicked! SyntheticMouseEvent {dispatchConfig: Object, ...}
+  ```
 
 ##Exercise 6: Hold `Toggle` state in the component
-Coming soon...
+1. Use a property initializer (experimental ES7 syntax) to define the initial state
+of the component right above the `render` method.
+  ```jsx
+  // app/components/Toggle.js
+  state = {
+    endabled: false
+  };
+
+  render() {
+    // ...
+  }
+  ```
+
+1. Use component state to determine the value the `Toggle` displays in the render method.
+Change `this.props.enabled` to `this.state.enabled`.
+  ```jsx
+  // app/components/Toggle.js
+  {this.state.enabled ? this.props.enabledText : this.props.disabledText}:
+  ```
+
+1. Update the click handler so it toggles the `enabled` state of the `Toggle`.
+Whenever the state of a component changes, React re-renders that component.
+We'll also change the handler to a property initializer to preserve the context.
+  ```jsx
+  // app/components/Toggle.js
+  _handleClick = (event) => {
+    this.setState({ enabled: !this.state.enabled })
+  };
+  ```
+
+1. Try clicking on your `Toggle` in the page. You should see it toggling between values.
+
+1. You can remove `enabled` from the `propTypes` and `defaultProps` since we're no longer using it.
+Also, remove the property from the `Toggle` element in `app/main.js`.
 
 ##Exercise 7: Add CSS to `Toggle`
-Coming soon...
+1. Import CSS in `app/styles/toggle.sass` into `Toggle`.
+  ```jsx
+  // app/components/Toggle.js
+  import React, { Component, PropTypes } from 'react'
+  import css from '../styles/toggle'
+  ```
+
+1. Assign `className` to rendered elements using classes declared in CSS.
+  ```jsx
+  render() {
+    return (
+      <div className={css.control} onClick={this._handleClick}>
+        <div className={css.toggle}>
+          {this.state.enabled ? this.props.enabledText : this.props.disabledText}
+        </div>
+        <div className={css.label}>{this.props.children}</div>
+      </div>
+    )
+  }
+  ```
+
+1. Use the `classnames` module to conditionally join classNames together. We'll use `classnames` to add
+`css.enabled` class next to `css.toggle` whenever `state.enabled` is `true`.
+  ```jsx
+  <div className={classnames.bind(css)('toggle', { enabled })}>
+    {this.state.enabled ? this.props.enabledText : this.props.disabledText}
+  </div>
+  ```
+  > **Note:** We're using CSS Modules, so the actual CSS class names are scoped locally by default. In this case, they're
+  scoped to the `Toggle` component. For example, instead of `.toggle`, it looks more like `.app-styles-toggle---toggle---3l82H`.
+  See https://github.com/css-modules/css-modules.
+
+1. Your `Toggle` should look a bit prettier on the page.
 
 ##Exercise 8: Create a `Settings` component using `Toggle` components
-Coming soon...
+1. Open `app/components/Settings.js`.
+
+1. Add three toggles below `Settings` heading.
+  ```jsx
+  render() {
+      return (
+        <div className={css.settings}>
+          <h1 className={css.heading}>Settings</h1>
+          <Toggle enabledText='Yep' disabledText='Nope'>
+            Use React in my web application?
+          </Toggle>
+          <Toggle enabledText='Yep' disabledText='Nope'>
+            Use Redux for state management?
+          </Toggle>
+          <Toggle enabledText='Yep' disabledText='Nope'>
+            Use CSS modules to locally scope stying?
+          </Toggle>
+        </div>
+      )
+    }
+  ```
+
+1. Let's extract the duplicate code into the method `_renderToggle`.
+  ```jsx
+  render() {
+    const settings = [
+      'Use React in my web application?',
+      'Use Redux for state management?',
+      'Use CSS modules to locally scope stying?'
+    ]
+    return (
+      <div className={css.settings}>
+        <h1 className={css.heading}>Settings</h1>
+        {settings.map(this._renderToggle)}
+      </div>
+    )
+  }
+
+  _renderToggle(label, index) {
+    return (
+      <Toggle key={index} enabledText='Yep' disabledText='Nope'>
+        {label}
+      </Toggle>
+    )
+  }
+  ```
+  > **Note:** When iteratively rendering React elements, you need to add a `key` property so React
+  can correctly identify the component child.
+
+1. You'll now have a settings page with three toggles on your page.
 
 ##Exercise 9: Delegate `Toggle` state to the `Settings` component
 Coming soon...
