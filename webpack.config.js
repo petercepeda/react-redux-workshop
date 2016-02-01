@@ -38,7 +38,7 @@ module.exports = {
   ],
   resolve: {
     root: [path.join(__dirname, 'app')],
-    extensions: ['', '.js', '.sass', '.woff', '.ttf', '.eot', '.svg']
+    extensions: ['', '.js', '.sass', '.json', '.woff', '.ttf', '.eot', '.svg']
   },
   shared: {
     getJSLoader: function (env) {
