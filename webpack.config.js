@@ -36,6 +36,10 @@ module.exports = {
     new ExtractTextPlugin('[name].css', { allChunks: true }),
     new WebpackNotifierPlugin({ title: 'Webpack assets' })
   ],
+  resolve: {
+    root: [path.join(__dirname, 'app')],
+    extensions: ['', '.js', '.sass', '.woff', '.ttf', '.eot', '.svg']
+  },
   shared: {
     getJSLoader: function (env) {
       if (!env === 'prod')
@@ -52,7 +56,7 @@ module.exports = {
       var preprocessors = '!autoprefixer?browsers=last 2 version!sass?indentedSyntax';
       return {
         test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('style!css?' + fileFormat[env] + preprocessors)
+        loader: ExtractTextPlugin.extract('css?' + fileFormat[env] + preprocessors)
       };
     }
   }
