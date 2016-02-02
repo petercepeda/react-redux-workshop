@@ -52,4 +52,4 @@
 
 
 <br>
-###[Next Step: Update `Toggle` state in the `Settings` component &rarr;](docs/exercise-9.md)
+###[Next Step: Update `Toggle` state in the `Settings` component &rarr;](./exercise-9.md)

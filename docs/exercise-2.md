@@ -77,4 +77,4 @@
 
 
 <br>
-###[Next Step: Add properties to customize `Toggle` values &rarr;](docs/exercise-3.md)
+###[Next Step: Add properties to customize `Toggle` values &rarr;](./exercise-3.md)

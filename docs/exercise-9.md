@@ -85,4 +85,4 @@ The settings view should list which items are enabled.
 
 
 <br>
-###[Next Step: Use JSON to populate `Settings` component &rarr;](docs/exercise-10.md)
+###[Next Step: Use JSON to populate `Settings` component &rarr;](./exercise-10.md)

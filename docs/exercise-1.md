@@ -28,4 +28,4 @@
 
 
 <br>
-###[Next Step: Create a simple `Toggle` component &rarr;](docs/exercise-2.md)
+###[Next Step: Create a simple `Toggle` component &rarr;](./exercise-2.md)

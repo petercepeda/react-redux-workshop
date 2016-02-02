@@ -36,4 +36,4 @@ Also, remove the property from the `Toggle` element in `app/main.js`.
 
 
 <br>
-###[Next Step: Add CSS to `Toggle` &rarr;](docs/exercise-7.md)
+###[Next Step: Add CSS to `Toggle` &rarr;](./exercise-7.md)

@@ -35,4 +35,4 @@
 
 
 <br>
-###[Next Step: Create a `Settings` component using `Toggle` components &rarr;](docs/exercise-8.md)
+###[Next Step: Create a `Settings` component using `Toggle` components &rarr;](./exercise-8.md)

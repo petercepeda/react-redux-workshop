@@ -27,4 +27,4 @@
 
 
 <br>
-###[Next Step: Hold `Toggle` state in the component &rarr;](docs/exercise-6.md)
+###[Next Step: Hold `Toggle` state in the component &rarr;](./exercise-6.md)

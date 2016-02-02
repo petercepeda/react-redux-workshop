@@ -26,4 +26,4 @@ a label for the `Toggle`.
 
 
 <br>
-###[Next Step: Handle `Toggle` clicks &rarr;](docs/exercise-5.md)
+###[Next Step: Handle `Toggle` clicks &rarr;](./exercise-5.md)
