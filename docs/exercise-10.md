@@ -36,4 +36,4 @@ API responses to render components.
 
 
 <br>
-###[Done! For now... (MWAHAHAHA!) &rarr;](/)
+###Done! For now... (MWAHAHAHA!)
