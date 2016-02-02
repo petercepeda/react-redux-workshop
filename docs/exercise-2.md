@@ -1,5 +1,3 @@
-[&larr; Exercise 1: Edit the `HelloWorld` component](docs/exercise-1.md)
-
 ##Exercise 2: Create a simple `Toggle` component
 1. Save `HelloWorld.js` as `Toggle.js` in the same directory.
   Rename the class to `Toggle` and clear the `div`.

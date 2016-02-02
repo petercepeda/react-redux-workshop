@@ -1,5 +1,3 @@
-[&larr; Exercise 6: Hold `Toggle` state in the component](docs/exercise-6.md)
-
 ##Exercise 7: Add CSS to `Toggle`
 1. Import CSS in `app/styles/toggle.sass` into `Toggle`.
   ```jsx

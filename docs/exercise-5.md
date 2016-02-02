@@ -1,5 +1,3 @@
-[&larr; Exercise 4: Use children as the `Toggle` label](docs/exercise-4.md)
-
 ##Exercise 5: Handle `Toggle` clicks
 1. Add a method to `Toggle` for handling clicks and logging the event in the console.
   ```jsx

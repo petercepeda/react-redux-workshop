@@ -1,5 +1,3 @@
-[&larr; Exercise 7: Add CSS to `Toggle`](docs/exercise-7.md)
-
 ##Exercise 8: Create a `Settings` component using `Toggle` components
 1. Open `app/components/Settings.js`.
 

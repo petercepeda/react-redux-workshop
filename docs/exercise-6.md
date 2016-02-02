@@ -1,5 +1,3 @@
-[&larr; Exercise 5: Handle `Toggle` clicks](docs/exercise-5.md)
-
 ##Exercise 6: Hold `Toggle` state in the component
 1. Use a property initializer (experimental ES7 syntax) to define the initial state
 of the component right above the `render` method.

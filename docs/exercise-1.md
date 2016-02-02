@@ -1,5 +1,3 @@
-[&larr; Back to Setup](/README.md)
-
 ##Exercise 1: Edit the `HelloWorld` component
 1. Open the project in your text editor and edit `app/components/HelloWorld.js`.
 

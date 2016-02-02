@@ -1,5 +1,3 @@
-[&larr; Exercise 2: Create a simple `Toggle` component](docs/exercise-2.md)
-
 ##Exercise 3: Add properties to customize `Toggle` values
 1. Add two properties to `propTypes`: `enabledText` and `disabledText`.
   ```jsx

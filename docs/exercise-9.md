@@ -1,5 +1,3 @@
-[&larr; Exercise 8: Create a `Settings` component using `Toggle` components](docs/exercise-8.md)
-
 ##Exercise 9: Update `Toggle` state in the `Settings` component
 1. Define the `Settings` component initial state. We're going to keep track of which settings are enabled.
   ```jsx

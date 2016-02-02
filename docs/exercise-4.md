@@ -1,5 +1,3 @@
-[&larr; Exercise 3: Add properties to customize `Toggle` values](docs/exercise-3.md)
-
 ##Exercise 4: Use children as the `Toggle` label
 1. Add some text inside of the `Toggle`. Instead of a self-closing tag, you'll enclose the text with a closing `Toggle` tag.
   ```jsx

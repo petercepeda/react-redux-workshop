@@ -1,5 +1,3 @@
-[&larr; Exercise 9: Update `Toggle` state in the `Settings` component](docs/exercise-9.md)
-
 ##Exercise 10: Use JSON to populate `Settings` component
 1. Import settings JSON into `Settings`.
   ```jsx
