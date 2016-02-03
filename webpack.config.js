@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var WebpackNotifierPlugin = require('webpack-notifier')
+var autoprefixer = require('autoprefixer')
 
 
 var jsLoader = {
@@ -36,6 +37,13 @@ module.exports = {
     new ExtractTextPlugin('[name].css', { allChunks: true }),
     new WebpackNotifierPlugin({ title: 'Webpack assets' })
   ],
+  postcss: function () {
+    return [
+      autoprefixer({
+        browsers: ['last 2 versions']
+      })
+    ]
+  },
   resolve: {
     root: [path.join(__dirname, 'app')],
     extensions: ['', '.js', '.sass', '.json', '.woff', '.ttf', '.eot', '.svg']
@@ -47,16 +55,14 @@ module.exports = {
       return jsLoader;
     },
     getSassLoader: function (env) {
-      if (!env)
-        env = 'dev';
-      var fileFormat = {
-        dev: 'modules&importLoaders=2&localIdentName=[path][name]---[local]---[hash:base64:5]',
-        prod: 'modules&importLoaders=2&localIdentName=[path][name]'
-      };
-      var preprocessors = '!autoprefixer?browsers=last 2 version!sass?indentedSyntax';
+      var localIdentName = '[path][name]';
+
+      if (env !== 'prod')
+        localIdentName += '___[local]___[hash:base64:5]'
+
       return {
         test: /\.sass$/,
-        loader: ExtractTextPlugin.extract('css?' + fileFormat[env] + preprocessors)
+        loader: ExtractTextPlugin.extract('css?modules&importLoaders=2&localIdentName=' + localIdentName + '!postcss!sass?indentedSyntax')
       };
     }
   }
