@@ -32,6 +32,7 @@ All you do with React is create bite-sized, encapsulated UI blocks with which yo
 
 1. Go into the workshop directory and install the required node modules.
   ```
+  $ cd ~/Work/react-redux-workshop
   $ npm install
   ```
 
