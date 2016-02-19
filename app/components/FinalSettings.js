@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import _ from 'lodash'
-import Toggle from './Toggle'
+import Toggle from './FinalToggle'
 import css from '../styles/settings'
 import { settings } from '../assets/json/settings'
 
@@ -27,7 +26,9 @@ export default class Settings extends Component {
     }
 
     const handleDisable = () => {
-      this.setState({ enabled: _.reject(this.state.enabled, settingId => settingId === id) })
+      const enabled = this.state.enabled.slice()
+      enabled.splice(enabled.indexOf(id), 1)
+      this.setState({ enabled })
     }
 
     return (

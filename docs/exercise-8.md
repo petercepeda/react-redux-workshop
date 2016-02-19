@@ -24,11 +24,14 @@
 1. Let's extract the duplicate code into the method `_renderToggle`.
   ```jsx
   render() {
+    // Make a list of labels
     const settings = [
       'Use React in my web application?',
       'Use Redux for state management?',
       'Use CSS modules to locally scope stying?'
     ]
+
+    // Iterate through each setting and render a Toggle for each
     return (
       <div className={css.settings}>
         <h1 className={css.heading}>Settings</h1>
@@ -37,6 +40,7 @@
     )
   }
 
+  // Pass in the setting label and its index
   _renderToggle(label, index) {
     return (
       <Toggle key={index} enabledText='Yep' disabledText='Nope'>
@@ -48,7 +52,15 @@
   > **Note:** When iteratively rendering React elements, you need to add a `key` property so React
   can correctly identify the component child.
 
-1. You'll now have a settings page with three toggles on your page.
+1. Update `main.js` to render the `Settings` component instead of the `Toggle` component.
+  ```jsx
+  // app/main.js
+  import Settings from './components/Settings'
+  // ...
+  render(<Settings />, document.getElementById('app'))
+  ```
+
+  You'll now have a settings with three toggles on your page.
 
 
 <br>

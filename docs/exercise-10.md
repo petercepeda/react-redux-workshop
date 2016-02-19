@@ -8,13 +8,16 @@
 1. Update `_renderToggle` to correctly iterate through the settings JSON.
 With the settings as a collection of objects, we can destructure each in the method argument.
   ```jsx
-  _renderToggle = ({ id, title }) => {
+  // app/components/Settings.js
+  _renderToggle = ({ id, title }) => { // <-- CHANGE ARGUMENTS
     const handleEnable = () => {
-      this.setState({ enabled: this.state.enabled.concat([id]) })
+      this.setState({ enabled: this.state.enabled.concat([id]) }) // <-- CHANGE index TO id
     }
 
     const handleDisable = () => {
-      this.setState({ enabled: _.reject(this.state.enabled, settingId => settingId === id) })
+      const enabled = this.state.enabled.slice()
+      enabled.splice(enabled.indexOf(id), 1) // <-- CHANGE index TO enabled.indexOf(id)
+      this.setState({ enabled })
     }
 
     return (
@@ -31,7 +34,7 @@ With the settings as a collection of objects, we can destructure each in the met
   };
   ```
 
-1. Everything should look and work the same way. This gives you an idea of how you would use
+1. Everything should look and work the same way, except instead of indices you're getting list of ids. This gives you an idea of how you would use
 API responses to render components.
 
 

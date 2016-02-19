@@ -18,16 +18,22 @@ All you do with React is create bite-sized, encapsulated UI blocks with which yo
 <br>
 ##Setup
 
-1. You'll need to clone this project into your working directory to get started.
+1. Install Brew if you need to.
   ```
-  $ git clone https://github.com/cepeda617/react-redux-workshop.git
+  $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```
 
-1. Get the latest version of Node.
+1. Get the latest version of Node using Brew.
   ```
   $ brew update
   $ brew install node
   $ node -v
+  ```
+  Or use the package installer at https://nodejs.org/dist/v5.6.0/node-v5.6.0.pkg
+
+1. You'll need to clone this project into your working directory to get started.
+  ```
+  $ git clone https://github.com/cepeda617/react-redux-workshop.git
   ```
 
 1. Go into the workshop directory and install the required node modules.

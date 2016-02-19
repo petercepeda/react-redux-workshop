@@ -20,9 +20,9 @@
   }
   ```
 
-1. Open the web inspector console, and click the `Toggle` to print the log message.
+1. Open the **web inspector console**, and click the `Toggle` to print the log message.
   ```
-  Toggle clicked! SyntheticMouseEvent {dispatchConfig: Object, ...}
+  > Toggle clicked! SyntheticMouseEvent {dispatchConfig: Object, ...}
   ```
 
 

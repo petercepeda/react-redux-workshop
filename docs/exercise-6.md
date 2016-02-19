@@ -1,6 +1,6 @@
 ##Exercise 6: Hold `Toggle` state in the component
-1. Use a property initializer (experimental ES7 syntax) to define the initial state
-of the component right above the `render` method.
+1. Use a property initializer *(experimental ES7 syntax)* to define the initial state
+of the component right above the `render` method in the `Toggle` component.
   ```jsx
   // app/components/Toggle.js
   state = {
@@ -12,7 +12,7 @@ of the component right above the `render` method.
   }
   ```
 
-1. Use component state to determine the value the `Toggle` displays in the render method.
+1. Use component `state` to determine the value the `Toggle` displays in the render method.
 Change `this.props.enabled` to `this.state.enabled`.
   ```jsx
   // app/components/Toggle.js
@@ -31,9 +31,26 @@ We'll also change the handler to a property initializer to preserve the context.
 
 1. Try clicking on your `Toggle` in the page. You should see it toggling between values.
 
-1. You can remove `enabled` from the `propTypes` and `defaultProps` since we're no longer using it.
-Also, remove the property from the `Toggle` element in `app/main.js`.
+1. Remove `enabled` from the `propTypes` and `defaultProps` since we're no longer using it.
 
+  ```jsx
+  // app/components/Toggle.js
+  static propTypes = {
+    enabledText: PropTypes.string,
+    disabledText: PropTypes.string
+  };
+
+  static defaultProps = {
+    enabledText: 'ON',
+    disabledText: 'OFF'
+  };
+  ```
+
+1. Also, remove the property from the `Toggle` element in `app/main.js`.
+  ```jsx
+  // app/main.js
+  render(<Toggle enabledText='Yep' disabledText='Nope' />, document.getElementById('app'))
+  ```
 
 <br>
 ###[Next Step: Add CSS to `Toggle` &rarr;](./exercise-7.md)
